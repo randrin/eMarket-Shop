@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent" color-on-scroll="500">
+<nav class="navbar navbar-expand-lg bg-white fixed-top navbar-transparent eMarket-shop-wrapper" color-on-scroll="500">
     <div class="container">
         <div class="navbar-translate">
             <a class="navbar-brand" [routerLink]="['/presentation']" placement="bottom" ngbTooltip="Designed by Invision. Coded by Creative Tim">
@@ -16,6 +16,12 @@
                     <a class="nav-link" [routerLink]="['/components']">
                       <i class="now-ui-icons design_app"></i>
                       <p>Components</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/products']">
+                      <i class="now-ui-icons shopping_bag-16"></i>
+                      <p>Produits</p>
                     </a>
                 </li>
                 <a ngbDropdown class="nav-item dropdown">
@@ -54,8 +60,15 @@
                     </div>
                 </a>
                 <li class="nav-item">
-                    <a class="nav-link btn btn-primary" href="https://www.creative-tim.com/product/now-ui-kit-pro-angular">
-                       <p>Buy now</p>
+                    <a class="nav-link btn btn-default btn-round" [routerLink]="['/examples/register']">
+                        <i class="now-ui-icons files_single-copy-04"></i>
+                        <p class="eMarket-shop-signup">Sign Up</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link btn btn-primary btn-round" [routerLink]="['/examples/login']">
+                        <i class="now-ui-icons users_single-02"></i>
+                        <p class="eMarket-shop-login">Login</p>
                     </a>
                 </li>
             </ul>

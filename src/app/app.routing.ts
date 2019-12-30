@@ -18,12 +18,14 @@ import { ProfileComponent } from './examples/profile/profile.component';
 import { RegisterComponent } from './examples/register/register.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { PricingComponent } from './examples/pricing/pricing.component';
+import { ProductsComponent } from './components/products/products.component';
 
-const routes: Routes =[
+const routes: Routes = [
     { path: '', redirectTo: 'presentation', pathMatch: 'full' },
     { path: 'presentation',         component: PresentationComponent },
     { path: 'components',           component: ComponentsComponent },
     { path: 'sections',             component: SectionsComponent },
+    { path: 'products',             component: ProductsComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
     { path: 'examples/aboutus',     component: AboutusComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },
@@ -42,7 +44,7 @@ const routes: Routes =[
     imports: [
         CommonModule,
         BrowserModule,
-        RouterModule.forRoot(routes,{
+        RouterModule.forRoot(routes, {
           useHash: true
         })
     ],
