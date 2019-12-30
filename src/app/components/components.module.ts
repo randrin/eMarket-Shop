@@ -22,6 +22,8 @@ import { FootersAreasComponent } from './footers-areas/footers-areas.component';
 import { TablesAreasComponent } from './tables-areas/tables-areas.component';
 import { CommentsAreasComponent } from './comments-areas/comments-areas.component';
 import { CardsAreasComponent } from './cards-areas/cards-areas.component';
+import { ProductsComponent } from './products/products.component';
+import { CategoriesComponent } from './categories/categories.component';
 
 @NgModule({
     imports: [
@@ -48,8 +50,10 @@ import { CardsAreasComponent } from './cards-areas/cards-areas.component';
         FootersAreasComponent,
         TablesAreasComponent,
         CommentsAreasComponent,
-        CardsAreasComponent
+        CardsAreasComponent,
+        ProductsComponent,
+        CategoriesComponent
     ],
-    exports:[ ComponentsComponent ]
+    exports: [ ComponentsComponent ]
 })
 export class ComponentsModule { }
