@@ -40,308 +40,39 @@
         </div>
       </ng-template>
   </ngb-carousel>
-    <div class="main">
+  <div class="main">
         <div class="section">
             <div class="container">
                 <h2 class="section-title">Find what you need</h2>
                 <div class="row">
-                    <div class="col-md-3">
-                      <h4 class="card-title card-refine">
-                          Refine
-                          <button class="btn btn-default btn-icon btn-neutral pull-right" placement="top" ngbTooltip="Reset Filter">
-                              <i class="arrows-1_refresh-69 now-ui-icons"></i>
-                          </button>
-                      </h4>
-                      <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" class="card-plain">
-                          <ngb-panel id="config-panel-one">
-                              <ng-template ngbPanelTitle>
-                                    <h6 class="mb-0">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                            Price Range
-                                            <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                        </a>
-                                    </h6>
+                  <div class="col-md-3">
+                    <div class="nav-pills-navigation">
+                        <div class="nav-pills-wrapper">
+                          <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
+                            <ngb-tab>
+                              <ng-template ngbTabTitle>
+                                <i class="now-ui-icons objects_umbrella-13"></i> Home
                               </ng-template>
-                              <ng-template ngbPanelContent>
-                                <nouislider class="slider slider-default" [connect]="true" [min]="0" [max]="10000" [step]="1" [(ngModel)]="doubleSlider" [tooltips]="true"></nouislider>
+                                <ng-template ngbTabContent>
+                                  Collaboratively administrate empowered markets via plug-and-play networks. Dynamically procrastinate B2C users after installed base benefits.
+                                  <br />
+                                  <br /> Dramatically visualize customer directed convergence without revolutionary ROI.
+                                </ng-template>
+                            </ngb-tab>
+                            <ngb-tab>
+                              <ng-template ngbTabTitle>
+                                <i class="now-ui-icons ui-2_settings-90"></i> Settings
                               </ng-template>
-                          </ngb-panel>
-                          <ngb-panel>
-                              <ng-template ngbPanelTitle>
-                                <h6 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                        Clothing
-                                        <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                    </a>
-                                </h6>
+                              <ng-template ngbTabContent>
+                                Efficiently unleash cross-media information without cross-media value. Quickly maximize timely deliverables for real-time schemas.
+                                <br />
+                                <br />Dramatically maintain clicks-and-mortar solutions without functional solutions.
                               </ng-template>
-                              <ng-template ngbPanelContent>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Blazers
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Casual Shirts
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Formal Shirts
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Jeans
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Polos
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Pijamas
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Shorts
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Trousers
-                                    </label>
-                                </div>
-                              </ng-template>
-                          </ngb-panel>
-                          <ngb-panel>
-                              <ng-template ngbPanelTitle>
-                                <h6 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                        Designer
-                                        <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                    </a>
-                                </h6>
-                              </ng-template>
-                              <ng-template ngbPanelContent>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        All
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Polo Ralph Lauren
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Wooyoungmi
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Alexander McQueen
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Tom Ford
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        AMI
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Berena
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Thom Sweeney
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Burberry Prorsum
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Calvin Klein
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Kingsman
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Club Monaco
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Dolce & Gabbana
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Gucci
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Biglioli
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Lanvin
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Loro Piana
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Massimo Alba
-                                    </label>
-                                </div>
-                              </ng-template>
-                          </ngb-panel>
-                          <ngb-panel>
-                              <ng-template ngbPanelTitle>
-                                <h6 class="mb-0">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapsefour" aria-expanded="false" aria-controls="collapsefour">
-                                        Colour
-                                        <i class="now-ui-icons arrows-1_minimal-down"></i>
-                                    </a>
-                                </h6>
-                              </ng-template>
-                              <ng-template ngbPanelContent>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        All
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Black
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Blue
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Brown
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Gray
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Green
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Neutrals
-                                    </label>
-                                </div>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input class="form-check-input" type="checkbox">
-                                        <span class="form-check-sign"></span>
-                                        Purple
-                                    </label>
-                                </div>
-                              </ng-template>
-                          </ngb-panel>
-                      </ngb-accordion>
-                    </div>
+                            </ngb-tab>
+                          </ngb-tabset>
+                        </div>
+                      </div>
+                  </div>
                     <div class="col-md-9">
                         <div class="row">
                             <div class="col-lg-4 col-md-6">
@@ -659,13 +390,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-6 ml-auto mr-auto">
-                        <div class="text-center">
-                            <h4 class="title">Subscribe to our Newsletter</h4>
-                            <p class="description">
-                                Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about this.
-                            </p>
-                        </div>
-                        <div class="card card-raised card-form-horizontal">
+                          <div class="text-left">
+                              <h4 class="title">Subscribe to our Newsletter</h4>
+                              <p class="description">
+                                  Join our newsletter and get news in your inbox every week! We hate spam too, so no worries about this.
+                              </p>
+                          </div>
+                    </div>
+                    <div class="col-md-6 ml-auto mr-auto">
+                      <div class="card card-raised card-form-horizontal">
                             <div class="card-body">
                                 <form method="" action="">
                                     <div class="row">
@@ -683,13 +416,13 @@
                                     </div>
                                 </form>
                             </div>
-                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- end-main-raised -->
+  </div>
+  <!-- end-main-raised -->
     <footer class="footer ">
         <div class="container">
             <nav>
