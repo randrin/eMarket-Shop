@@ -1,2 +1,30 @@
 <app-navbar></app-navbar>
-<router-outlet></router-outlet>
+<div class="main">
+    <div class="section">
+        <div class="container-fluid">
+            <h2 class="section-title">Find what you need</h2>
+            <div class="row">
+              <div class="col-md-2">
+                <div class="nav-pills-navigation" *ngIf="categories">
+                  <div class="nav-pills-wrapper">
+                    <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
+                      <ngb-tab *ngFor="let category of categories._embedded.categories">
+                        <ng-template ngbTabTitle>
+                          <span (click)="getProducts(category)">
+                            <i class="now-ui-icons objects_umbrella-13"></i> 
+                            {{ category.name }}
+                          </span>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-10">
+                <router-outlet></router-outlet>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <router-outlet></router-outlet> -->

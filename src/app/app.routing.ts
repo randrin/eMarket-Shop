@@ -19,13 +19,15 @@ import { RegisterComponent } from './examples/register/register.component';
 import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.component';
 import { PricingComponent } from './examples/pricing/pricing.component';
 import { ProductsComponent } from './components/products/products.component';
+import { CategoriesComponent } from './components/categories/categories.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: 'presentation', pathMatch: 'full' },
+    // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
     { path: 'presentation',         component: PresentationComponent },
     { path: 'components',           component: ComponentsComponent },
     { path: 'sections',             component: SectionsComponent },
-    { path: 'products',             component: ProductsComponent },
+    { path: 'products/:idProduct',             component: ProductsComponent },
+    { path: 'categories',           component: CategoriesComponent },
     { path: 'nucleoicons',          component: NucleoiconsComponent },
     { path: 'examples/aboutus',     component: AboutusComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },

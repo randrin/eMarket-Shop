@@ -5,6 +5,7 @@ import 'rxjs/add/operator/filter';
 import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CategoriesService } from './services/categories.service';
 
 @Component({
     selector: 'app-root',
@@ -14,8 +15,10 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
+    public categories;
 
-    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT,) private document: any, private element : ElementRef, public location: Location) {}
+    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT) private document: any,
+     private element : ElementRef, public location: Location, private categoriesService: CategoriesService) {}
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -59,7 +62,12 @@ export class AppComponent implements OnInit {
             body.classList.add('ie-background');
 
         }
-
+        this.categoriesService.getAllCategories().subscribe(data => {
+            this.categories = data;
+          },
+          err => {
+            console.log('Error CategoriesService: ', err);
+          });
     }
     removeFooter() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -70,5 +78,10 @@ export class AppComponent implements OnInit {
         else {
             return true;
         }
+    }
+    getProducts(category) {
+        console.log(category);
+        let urlProduct = category._links.products.href;
+        this.router.navigateByUrl('/products/' + btoa(urlProduct));
     }
 }
