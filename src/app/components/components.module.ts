@@ -24,6 +24,9 @@ import { CommentsAreasComponent } from './comments-areas/comments-areas.componen
 import { CardsAreasComponent } from './cards-areas/cards-areas.component';
 import { ProductsComponent } from './products/products.component';
 import { CategoriesComponent } from './categories/categories.component';
+import { AdministrationProduitsComponent } from './administration/administration-produits/administration-produits.component';
+import { AdministrationCategoriesComponent } from './administration/administration-categories/administration-categories.component';
+import { AdministrationUtilisateursComponent } from './administration/administration-utilisateurs/administration-utilisateurs.component';
 
 @NgModule({
     imports: [
@@ -52,7 +55,10 @@ import { CategoriesComponent } from './categories/categories.component';
         CommentsAreasComponent,
         CardsAreasComponent,
         ProductsComponent,
-        CategoriesComponent
+        CategoriesComponent,
+        AdministrationProduitsComponent,
+        AdministrationCategoriesComponent,
+        AdministrationUtilisateursComponent
     ],
     exports: [ ComponentsComponent ]
 })

@@ -24,8 +24,7 @@ export class CategoriesComponent implements OnInit {
 
   getProducts(category) {
     console.log(category);
-    let urlProduct = category._links.products.href;
+    const urlProduct = category._links.products.href;
     console.log(urlProduct);
-    // this.router.navigateByUrl('/products/' + urlProduct);
   }
 }

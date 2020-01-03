@@ -20,16 +20,22 @@ import { NucleoiconsComponent } from './components/nucleoicons/nucleoicons.compo
 import { PricingComponent } from './examples/pricing/pricing.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CategoriesComponent } from './components/categories/categories.component';
+import { AdministrationProduitsComponent } from './components/administration/administration-produits/administration-produits.component';
+import { AdministrationUtilisateursComponent } from './components/administration/administration-utilisateurs/administration-utilisateurs.component';
+import { AdministrationCategoriesComponent } from './components/administration/administration-categories/administration-categories.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
-    { path: 'presentation',         component: PresentationComponent },
-    { path: 'components',           component: ComponentsComponent },
-    { path: 'sections',             component: SectionsComponent },
-    { path: 'products/:idProduct',  component: ProductsComponent },
-    { path: 'categories',           component: CategoriesComponent },
-    { path: 'login',                component: LoginComponent },
-    { path: 'nucleoicons',          component: NucleoiconsComponent },
+    { path: 'presentation',                     component: PresentationComponent },
+    { path: 'components',                       component: ComponentsComponent },
+    { path: 'sections',                         component: SectionsComponent },
+    { path: 'products/:idProduct',              component: ProductsComponent },
+    { path: 'categories',                       component: CategoriesComponent },
+    { path: 'login',                            component: LoginComponent },
+    { path: 'administration/produits',          component: AdministrationProduitsComponent },
+    { path: 'administration/categories',        component: AdministrationCategoriesComponent },
+    { path: 'administration/utilisateurs',      component: AdministrationUtilisateursComponent },
+    { path: 'nucleoicons',                      component: NucleoiconsComponent },
     { path: 'examples/aboutus',     component: AboutusComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },
     { path: 'examples/blogposts',   component: BlogpostsComponent },

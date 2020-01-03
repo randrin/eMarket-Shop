@@ -1,6 +1,7 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthentificationService } from 'app/services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-navbar',
@@ -12,7 +13,8 @@ export class NavbarComponent implements OnInit {
     private sidebarVisible: boolean;
     public username;
 
-    constructor(public location: Location, private element : ElementRef, private authentificationService: AuthentificationService) {
+    constructor(public location: Location, private element : ElementRef, private authentificationService: AuthentificationService,
+        private router: Router) {
         this.sidebarVisible = false;
     }
 
@@ -72,7 +74,11 @@ export class NavbarComponent implements OnInit {
     isAuthentificated () {
         return this.authentificationService.isAuthentificated();
     }
+    isAdmin () {
+        return this.authentificationService.isAdmin();
+    }
     onLogout() {
         this.authentificationService.onLogout();
+        this.router.navigateByUrl('/');
     }
 }

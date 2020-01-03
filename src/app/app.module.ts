@@ -16,6 +16,9 @@ import { PresentationModule } from './presentation/presentation.module';
 import { AuthentificationService } from './services/authentification.service';
 import { ProductsService } from './services/products.service';
 import { CategoriesService } from './services/categories.service';
+import { AdministrationCategoriesService } from './services/administration-categories.service';
+import { AdministrationUtilisateursService } from './services/administration-utilisateurs.service';
+import { AdministrationProduitsService } from './services/administration-produits.service';
 
 @NgModule({
     declarations: [
@@ -37,7 +40,10 @@ import { CategoriesService } from './services/categories.service';
     providers: [
         AuthentificationService,
         ProductsService,
-        CategoriesService
+        CategoriesService,
+        AdministrationCategoriesService,
+        AdministrationUtilisateursService,
+        AdministrationProduitsService
     ],
     bootstrap: [AppComponent]
 })

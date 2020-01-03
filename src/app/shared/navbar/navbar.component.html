@@ -66,15 +66,26 @@
                     </a>
                 </li>
                 <li class="nav-item" *ngIf="!isAuthentificated()">
-                    <a class="nav-link btn btn-primary btn-round" [routerLink]="['/login']">
-                        <i class="now-ui-icons users_single-02"></i>
-                        <p class="eMarket-shop-login">Login</p>
+                    <a class="nav-link btn btn-success btn-round" [routerLink]="['/login']">
+                        <i class="now-ui-icons users_circle-08"></i>
+                        <p class="eMarket-shop-login">LoGin</p>
                     </a>
                 </li>
+                <a ngbDropdown class="nav-item dropdown" *ngIf="isAdmin()">
+                    <div class="nav-link dropdown-toggle" ngbDropdownToggle>
+                        <i class="now-ui-icons users_single-02" aria-hidden="true"></i>
+                        <p class="eMarket-shop-login">Administration</p>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]="['/administration/produits']"><i class="now-ui-icons business_bulb-63"></i> Produits</a>
+                        <a class="dropdown-item" [routerLink]="['/administration/categories']"><i class="now-ui-icons text_align-left"></i> Categories</a>
+                        <a class="dropdown-item" [routerLink]="['/administration/utilisateurs']"><i class="now-ui-icons design_bullet-list-67"></i> Utilisateurs</a>
+                    </div>
+                </a>
                 <a ngbDropdown class="nav-item dropdown" *ngIf="isAuthentificated()">
                     <div class="nav-link dropdown-toggle" ngbDropdownToggle>
-                      <i class="now-ui-icons design_image" aria-hidden="true"></i>
-                    <p>{{username}}</p>
+                        <i class="now-ui-icons design_image" aria-hidden="true"></i>
+                        <p class="eMarket-shop-login">{{username}}</p>
                     </div>
                     <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons business_bulb-63"></i> Mes Commandes</a>
