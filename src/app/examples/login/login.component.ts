@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthentificationService } from 'app/services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +13,7 @@ export class LoginComponent implements OnInit {
     focus;
     focus1;
     
-    constructor() { }
+    constructor(private authentificationService: AuthentificationService, private router: Router) { }
 
     ngOnInit() {
         var body = document.getElementsByTagName('body')[0];
@@ -24,6 +26,17 @@ export class LoginComponent implements OnInit {
         body.classList.remove('login-page');
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.remove('navbar-transparent');
+    }
+    onLogin(user) {
+        console.log(user);
+        this.authentificationService.onLogin(user).subscribe(response => {
+            console.log('Response: ', response);
+            const jwt = response.headers.get('Authorization');
+            this.authentificationService.saveToken(jwt);
+            this.router.navigateByUrl('/');
+        }, err => {
+            console.log('Error AuthentificationService - onLogin: ', err);
+        });
     }
 
 }

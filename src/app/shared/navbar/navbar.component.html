@@ -59,18 +59,31 @@
                         <a class="dropdown-item" [routerLink]="['/examples/register']"><i class="now-ui-icons tech_mobile"></i> Signup Page</a>
                     </div>
                 </a>
-                <li class="nav-item">
+                <li class="nav-item" *ngIf="!isAuthentificated()">
                     <a class="nav-link btn btn-default btn-round" [routerLink]="['/examples/register']">
                         <i class="now-ui-icons files_single-copy-04"></i>
                         <p class="eMarket-shop-signup">Sign Up</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link btn btn-primary btn-round" [routerLink]="['/examples/login']">
+                <li class="nav-item" *ngIf="!isAuthentificated()">
+                    <a class="nav-link btn btn-primary btn-round" [routerLink]="['/login']">
                         <i class="now-ui-icons users_single-02"></i>
                         <p class="eMarket-shop-login">Login</p>
                     </a>
                 </li>
+                <a ngbDropdown class="nav-item dropdown" *ngIf="isAuthentificated()">
+                    <div class="nav-link dropdown-toggle" ngbDropdownToggle>
+                      <i class="now-ui-icons design_image" aria-hidden="true"></i>
+                    <p>{{username}}</p>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons business_bulb-63"></i> Mes Commandes</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons text_align-left"></i> Mon Espace Personnel</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons design_bullet-list-67"></i> Mes Avantages</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons location_pin"></i> Mon Parrainage</a>
+                        <a class="dropdown-item" (click)="onLogout()"><i class="now-ui-icons tech_mobile"></i> LoGout</a>
+                    </div>
+                </a>
             </ul>
         </div>
     </div>

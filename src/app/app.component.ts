@@ -6,6 +6,7 @@ import { DOCUMENT } from '@angular/platform-browser';
 import { LocationStrategy, PlatformLocation, Location } from '@angular/common';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CategoriesService } from './services/categories.service';
+import { AuthentificationService } from './services/authentification.service';
 
 @Component({
     selector: 'app-root',
@@ -18,7 +19,8 @@ export class AppComponent implements OnInit {
     public categories;
 
     constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT) private document: any,
-     private element : ElementRef, public location: Location, private categoriesService: CategoriesService) {}
+     private element : ElementRef, public location: Location, private categoriesService: CategoriesService,
+     private authentificationService: AuthentificationService) {}
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -68,6 +70,7 @@ export class AppComponent implements OnInit {
           err => {
             console.log('Error CategoriesService: ', err);
           });
+          this.authentificationService.retrieveToken();
     }
     removeFooter() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
@@ -83,5 +86,9 @@ export class AppComponent implements OnInit {
         console.log(category);
         let urlProduct = category._links.products.href;
         this.router.navigateByUrl('/products/' + btoa(urlProduct));
+    }
+
+    isAuthentificated () {
+        this.authentificationService.isAuthentificated();
     }
 }
