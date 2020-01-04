@@ -8,13 +8,19 @@ import { AuthentificationService } from './authentification.service';
 })
 export class AdministrationCategoriesService {
 
+  public prefix = 'Bearer ';
+
   constructor(
     public router: Router, private http: HttpClient, private authentificationService: AuthentificationService) {
   }
 
-  deleteCategorie(category) {
-    const prefix = 'Bearer ';
-    const headers = new HttpHeaders({'authorization': prefix + this.authentificationService.jwt})
+  onDeleteCategorie(category) {
+    const headers = new HttpHeaders({'authorization': this.prefix + this.authentificationService.jwt})
     return this.http.delete(category, {'headers': headers});
+  }
+
+  onSaveCategory(category, url) {
+    const headers = new HttpHeaders({'authorization': this.prefix + this.authentificationService.jwt})
+    return this.http.post(url, category, {'headers': headers});
   }
 }

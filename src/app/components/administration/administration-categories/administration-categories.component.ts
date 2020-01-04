@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { CategoriesService } from 'app/services/categories.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { AdministrationCategoriesService } from 'app/services/administration-categories.service';
+import { AuthentificationService } from 'app/services/authentification.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-administration-categories',
@@ -13,9 +15,12 @@ export class AdministrationCategoriesComponent implements OnInit {
   public categories;
   public closeResult: string;
   public mode: string;
+  public focus1;
+  public focus2;
 
   constructor(private categoriesService: CategoriesService, private modalService: NgbModal,
-    private administrationCategoriesService: AdministrationCategoriesService) { }
+    private administrationCategoriesService: AdministrationCategoriesService, private authentificationService: AuthentificationService,
+    private router: Router) { }
 
   ngOnInit() {
     this.getAllCaterogies();
@@ -62,16 +67,31 @@ export class AdministrationCategoriesComponent implements OnInit {
     }
   }
 
-  deleteCategorie(category) {
+  onDeleteCategorie(category) {
     console.log(category);
-    this.administrationCategoriesService.deleteCategorie(category._links.self.href).subscribe(data => {
+    this.administrationCategoriesService.onDeleteCategorie(category._links.self.href).subscribe(data => {
       this.getAllCaterogies();
     }, err => {
-      console.log('Error AdministrationCategoriesService - deleteCategorie: ', err);
+      console.log('Error AdministrationCategoriesService - onDeleteCategorie: ', err);
     });
   }
 
   AddCategorie(category) {
     this.mode = 'Add Categorie';
+  }
+
+  BackToCategories() {
+    this.mode = 'Get Categorie';
+    this.router.navigateByUrl('/administration/categories');
+  }
+
+  onSaveCategory(category) {
+    console.log(category);
+    const url = this.categoriesService.categoriestUrl;
+    this.administrationCategoriesService.onSaveCategory(category, url).subscribe(data => {
+      this.getAllCaterogies();
+    }, err => {
+      console.log('Error AdministrationCategoriesService - onSaveCategory: ', err);
+    });
   }
 }
