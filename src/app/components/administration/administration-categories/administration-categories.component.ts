@@ -13,6 +13,7 @@ import { Router } from '@angular/router';
 export class AdministrationCategoriesComponent implements OnInit {
 
   public categories;
+  public editCategory;
   public closeResult: string;
   public mode: string;
   public focus1;
@@ -80,18 +81,32 @@ export class AdministrationCategoriesComponent implements OnInit {
     this.mode = 'Add Categorie';
   }
 
+  EditCategorie(category) {
+    console.log('category', category.active);
+    this.editCategory = category;
+    this.mode = 'Edit Categorie';
+    console.log('editCategory.active', this.editCategory.active);
+  }
+
   BackToCategories() {
     this.mode = 'Get Categorie';
     this.router.navigateByUrl('/administration/categories');
   }
 
   onSaveCategory(category) {
-    console.log(category);
     const url = this.categoriesService.categoriestUrl;
     this.administrationCategoriesService.onSaveCategory(category, url).subscribe(data => {
       this.getAllCaterogies();
     }, err => {
       console.log('Error AdministrationCategoriesService - onSaveCategory: ', err);
+    });
+  }
+
+  onEditCategory(category) {
+    this.administrationCategoriesService.onEditCategory(category, this.editCategory._links.self.href).subscribe(data => {
+      this.getAllCaterogies();
+    }, err => {
+      console.log('Error AdministrationCategoriesService - onEditCategory: ', err);
     });
   }
 }

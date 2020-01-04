@@ -11,7 +11,7 @@
                       <ngb-tab *ngFor="let category of categories._embedded.categories">
                         <ng-template ngbTabTitle>
                           <span (click)="getProducts(category)">
-                            <i class="now-ui-icons objects_umbrella-13"></i> 
+                          <i class="now-ui-icons {{category.imageURl}}"></i> 
                             {{ category.name }}
                           </span>
                         </ng-template>

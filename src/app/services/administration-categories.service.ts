@@ -9,6 +9,7 @@ import { AuthentificationService } from './authentification.service';
 export class AdministrationCategoriesService {
 
   public prefix = 'Bearer ';
+  public headers = new HttpHeaders({'authorization': this.prefix + this.authentificationService.jwt})
 
   constructor(
     public router: Router, private http: HttpClient, private authentificationService: AuthentificationService) {
@@ -20,7 +21,10 @@ export class AdministrationCategoriesService {
   }
 
   onSaveCategory(category, url) {
-    const headers = new HttpHeaders({'authorization': this.prefix + this.authentificationService.jwt})
-    return this.http.post(url, category, {'headers': headers});
+    return this.http.post(url, category, {'headers': this.headers});
+  }
+
+  onEditCategory(category, url) {
+    return this.http.patch(url, category, {'headers': this.headers});
   }
 }

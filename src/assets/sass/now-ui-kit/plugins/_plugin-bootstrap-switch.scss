@@ -111,7 +111,7 @@
   text-align: center;
   z-index: 100;
   color: #333333;
-  background: #ffffff;
+  background: $success-color;
   width: 22px !important;
   height: 22px !important;
   margin: 0px -11px;
@@ -125,7 +125,7 @@
 }
 
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label{
-    background-color: rgba(23, 23, 23, .4);
+    background-color: $danger-color;
 }
 .bootstrap-switch.bootstrap-switch-on:hover .bootstrap-switch-label{
     width: 27px !important;
@@ -140,7 +140,7 @@
   border-top-left-radius: 3px;
 }
 .bootstrap-switch .bootstrap-switch-handle-off {
-  text-indent: 6px;
+  text-indent: 2px;
 }
 .bootstrap-switch input[type='radio'],
 .bootstrap-switch input[type='checkbox'] {
@@ -190,7 +190,7 @@
 .bootstrap-switch.bootstrap-switch-disabled .bootstrap-switch-label,
 .bootstrap-switch.bootstrap-switch-readonly .bootstrap-switch-label,
 .bootstrap-switch.bootstrap-switch-indeterminate .bootstrap-switch-label {
-  opacity: 0.5;
+  opacity: 1;
   filter: alpha(opacity=50);
   cursor: default !important;
 }
