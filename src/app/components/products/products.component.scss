@@ -1,12 +1,27 @@
+// Reesoudre le prblème des variavles #f96332 ????
+
 .eMarket-products-wrapper {
-    .eMarket-products-title {
+    .eMarket-category-title {
         font-weight: 700;
         color: #f96332;
     }
     .eMarket-products-image {
-        height: 300px;
+        height: 200px;
+        width: 250px;
+    }
+    .eMarket-product-container {
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 0 2px #f96332;
+            .eMarket-product-buy {
+                display: block;
+            }
+        }
     }
     .card-image {
         text-align: center;
+    }
+    .eMarket-product-buy {
+        display: none;
     }
 }
