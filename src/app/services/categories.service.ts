@@ -17,7 +17,7 @@ export class CategoriesService {
     return this.http.get(this.categoriestUrl);
   }
 
-  getAllProducts(idProducts) {
-    return this.http.get(idProducts);
+  getProductsByCategory(idCategory) {
+    return this.http.get(idCategory);
   }
 }

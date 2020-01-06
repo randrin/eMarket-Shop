@@ -23,6 +23,7 @@ import { CategoriesComponent } from './components/categories/categories.componen
 import { AdministrationProduitsComponent } from './components/administration/administration-produits/administration-produits.component';
 import { AdministrationUtilisateursComponent } from './components/administration/administration-utilisateurs/administration-utilisateurs.component';
 import { AdministrationCategoriesComponent } from './components/administration/administration-categories/administration-categories.component';
+import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: 'components',                       component: ComponentsComponent },
     { path: 'sections',                         component: SectionsComponent },
     { path: 'products/:idCategory/:idProduct',  component: ProductsComponent },
+    { path: 'product-details/:idProduct',       component: ProductDetailsComponent },
     { path: 'categories',                       component: CategoriesComponent },
     { path: 'login',                            component: LoginComponent },
     { path: 'administration/produits',          component: AdministrationProduitsComponent },

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { CategoriesService } from 'app/services/categories.service';
+import { Product } from 'app/models/product';
 
 @Component({
   selector: 'app-products',
@@ -21,19 +22,24 @@ export class ProductsComponent implements OnInit {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         // console.log(activatedRoute.snapshot.params.idProduct);
-        const idProduct = atob(this.activatedRoute.snapshot.params.idProduct);
+        const idCategory = atob(this.activatedRoute.snapshot.params.idProduct);
         this.categoryTitle = this.activatedRoute.snapshot.params.idCategory;
         // console.log(idProduct);
-        this.getProductsById(idProduct);
+        this.getProductsByCategory(idCategory);
       }
     });
   }
 
-  getProductsById(idProduct) {
-    this.categoriesService.getAllProducts(idProduct).subscribe(data => {
+  getProductsByCategory(idCategory) {
+    this.categoriesService.getProductsByCategory(idCategory).subscribe(data => {
       this.products = data;
     }, err => {
-      console.log('Error CategoriesService - getAllProducts: ', err);
+      console.log('Error CategoriesService - getProductsByCategory: ', err);
     });
+  }
+
+  onGetProductDetails(product: Product) {
+    const urlProduct = btoa(product._links.product.href);
+    this.router.navigateByUrl('product-details/' + urlProduct);
   }
 }

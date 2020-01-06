@@ -2,9 +2,9 @@
   <h3>Tous les produits de la catégorie: <span class="eMarket-category-title">{{categoryTitle}}</span></h3>
   <div class="row" *ngIf="products">
     <div *ngFor="let product of products._embedded.products" class="eMarket-product-container col-lg-4 col-md-6">
-        <div class="card card-product card-plain">
+        <div (click)="onGetProductDetails(product)" class="card card-product card-plain">
             <div class="card-image">
-                <a href="#">
+                <a (click)="onGetProductDetails(product)">
                   <img src="{{product.imageURl}}" alt="{{product.name}}" class="eMarket-products-image" />
                 </a>
             </div>
@@ -24,7 +24,7 @@
                     </button>
                 </div>
                 <div class="eMarket-product-buy text-center">
-                  <button class="btn btn-primary btn-round">
+                  <button (click)="onGetProductDetails(product)" class="btn btn-primary btn-round">
                     <i class="now-ui-icons shopping_cart-simple"></i> 
                     Acheter
                   </button>
