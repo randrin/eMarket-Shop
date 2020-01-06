@@ -68,12 +68,12 @@ export class AdministrationCategoriesComponent implements OnInit {
     }
   }
 
-  onDeleteCategorie(category) {
+  onDeleteCategory(category) {
     console.log(category);
-    this.administrationCategoriesService.onDeleteCategorie(category._links.self.href).subscribe(data => {
+    this.administrationCategoriesService.onDeleteCategory(category._links.self.href).subscribe(data => {
       this.getAllCaterogies();
     }, err => {
-      console.log('Error AdministrationCategoriesService - onDeleteCategorie: ', err);
+      console.log('Error AdministrationCategoriesService - onDeleteCategory: ', err);
     });
   }
 

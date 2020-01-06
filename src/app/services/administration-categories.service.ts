@@ -15,9 +15,8 @@ export class AdministrationCategoriesService {
     public router: Router, private http: HttpClient, private authentificationService: AuthentificationService) {
   }
 
-  onDeleteCategorie(category) {
-    const headers = new HttpHeaders({'authorization': this.prefix + this.authentificationService.jwt})
-    return this.http.delete(category, {'headers': headers});
+  onDeleteCategory(category) {
+    return this.http.delete(category, {'headers': this.headers});
   }
 
   onSaveCategory(category, url) {

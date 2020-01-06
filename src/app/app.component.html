@@ -10,8 +10,8 @@
                     <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
                       <ngb-tab *ngFor="let category of categories._embedded.categories">
                         <ng-template ngbTabTitle>
-                          <span (click)="getProducts(category)">
-                          <i class="now-ui-icons {{category.imageURl}}"></i> 
+                          <span (click)="getProductsByCategory(category)">
+                            <i class="now-ui-icons {{category.imageURl}}"></i> 
                             {{ category.name }}
                           </span>
                         </ng-template>

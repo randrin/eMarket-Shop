@@ -82,10 +82,9 @@ export class AppComponent implements OnInit {
             return true;
         }
     }
-    getProducts(category) {
-        console.log(category);
-        let urlProduct = category._links.products.href;
-        this.router.navigateByUrl('/products/' + btoa(urlProduct));
+    getProductsByCategory(category) {
+        const urlProduct = category._links.products.href;
+        this.router.navigateByUrl('/products/' + category.name + '/' + btoa(urlProduct));
     }
 
     isAuthentificated () {
