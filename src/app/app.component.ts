@@ -17,10 +17,11 @@ export class AppComponent implements OnInit {
     private _router: Subscription;
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
     public categories;
+    public subCategories;
 
     constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT) private document: any,
      private element : ElementRef, public location: Location, private categoriesService: CategoriesService,
-     private authentificationService: AuthentificationService) {}
+     private authentificationService: AuthentificationService, private categoriesServices: CategoriesService) {}
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
@@ -82,9 +83,25 @@ export class AppComponent implements OnInit {
             return true;
         }
     }
-    getProductsByCategory(category) {
-        const urlProduct = category._links.products.href;
-        this.router.navigateByUrl('/products/' + category.name + '/' + btoa(urlProduct));
+    getSubCategories(category) {
+        // const urlSubCategories = category._links.subCategories.href;
+        console.log('category selected: ', category.name);
+        // this.router.navigateByUrl('/products/' + category.name + '/' + btoa(urlSubCategories));
+        // this.router.navigateByUrl('/categories/' + category.id + '/subCategories');
+
+            this.categoriesServices.getSubCategoriesByCategory(category.name).subscribe(data => {
+              this.subCategories = data;
+            },
+            err => {
+              console.log('Error CategoriesService - getSubCategoriesByCategory: ', err);
+            });
+    }
+
+    getProductsBySubCategory(subCategory) {
+        console.log('subCategory selected: ', subCategory);
+        const urlProducts = subCategory._links.products.href;
+        console.log('urlProducts: ', urlProducts);
+        this.router.navigateByUrl('/products/' + subCategory.name + '/' + btoa(urlProducts));
     }
 
     isAuthentificated () {

@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class CategoriesService {
 
   public categoriestUrl = window['baseUrl'] + '/categories';
+  public subCategoriestUrl = window['baseUrl'] + '/subCategories';
 
   constructor(
     public router: Router, private http: HttpClient) {
@@ -17,7 +18,15 @@ export class CategoriesService {
     return this.http.get(this.categoriestUrl);
   }
 
-  getProductsByCategory(idCategory) {
-    return this.http.get(idCategory);
+  getAllSousCategories(urlSubCategories) {
+    return this.http.get(urlSubCategories);
+  }
+
+  getProductsBySubCategory(subCategory) {
+    return this.http.get(subCategory);
+  }
+
+  getSubCategoriesByCategory(idCategory) {
+    return this.http.get(this.categoriestUrl + '/' + idCategory + '/subCategories');
   }
 }

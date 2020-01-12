@@ -10,8 +10,8 @@
                     <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
                       <ngb-tab *ngFor="let category of categories._embedded.categories">
                         <ng-template ngbTabTitle>
-                          <span (click)="getProductsByCategory(category)">
-                            <i class="now-ui-icons {{category.imageURl}}"></i> 
+                          <span (click)="getSubCategories(category)">
+                            <i class="now-ui-icons {{category.imageIcon}}"></i> 
                             {{ category.name }}
                           </span>
                         </ng-template>
@@ -21,6 +21,21 @@
                 </div>
               </div>
               <div class="col-md-10">
+                <div class="row">
+                  <div class="nav-pills-navigation" *ngIf="subCategories">
+                    <div class="nav-pills-wrapper">
+                    <ngb-tabset type="pills" class="nav nav-pills nav-pills-info justify-content-start tab-space">
+                      <ngb-tab *ngFor="let subCategory of subCategories._embedded.subcategories">
+                        <ng-template ngbTabTitle>
+                          <span (click)="getProductsBySubCategory(subCategory)">
+                            {{subCategory.name}}
+                          </span>
+                        </ng-template>
+                      </ngb-tab>
+                    </ngb-tabset>
+                    </div>
+                    </div>
+                </div>
                 <router-outlet></router-outlet>
               </div>
             </div>

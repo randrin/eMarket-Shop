@@ -28,6 +28,7 @@ import { AdministrationProduitsComponent } from './administration/administration
 import { AdministrationCategoriesComponent } from './administration/administration-categories/administration-categories.component';
 import { AdministrationUtilisateursComponent } from './administration/administration-utilisateurs/administration-utilisateurs.component';
 import { ProductDetailsComponent } from './products/product-details/product-details.component';
+import { AdministraionSousCategoriesComponent } from './administration/administraion-sous-categories/administraion-sous-categories.component';
 
 @NgModule({
     imports: [
@@ -60,7 +61,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
         AdministrationProduitsComponent,
         AdministrationCategoriesComponent,
         AdministrationUtilisateursComponent,
-        ProductDetailsComponent
+        ProductDetailsComponent,
+        AdministraionSousCategoriesComponent
     ],
     exports: [ ComponentsComponent ]
 })

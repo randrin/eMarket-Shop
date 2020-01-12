@@ -6,13 +6,14 @@ import { AuthentificationService } from 'app/services/authentification.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-administration-categories',
-  templateUrl: './administration-categories.component.html',
-  styleUrls: ['./administration-categories.component.scss']
+  selector: 'app-administraion-sous-categories',
+  templateUrl: './administraion-sous-categories.component.html',
+  styleUrls: ['./administraion-sous-categories.component.scss']
 })
-export class AdministrationCategoriesComponent implements OnInit {
+export class AdministraionSousCategoriesComponent implements OnInit {
 
   public categories;
+  public subCategories;
   public editCategory;
   public closeResult: string;
   public mode: string;
@@ -24,16 +25,7 @@ export class AdministrationCategoriesComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
-    this.getAllCaterogies();
-  }
-
-  getAllCaterogies() {
-    this.mode = 'Get Categorie';
-    this.categoriesService.getAllCategories().subscribe(data => {
-      this.categories = data;
-    }, err => {
-      console.log('Error CategoriesService - getAllCategories: ', err);
-    });
+    this.getAllSubCaterogies();
   }
 
   open(content, type, modalDimension) {
@@ -68,49 +60,23 @@ export class AdministrationCategoriesComponent implements OnInit {
     }
   }
 
-  onDeleteCategory(category) {
-    console.log(category);
-    this.administrationCategoriesService.onDeleteCategory(category._links.self.href).subscribe(data => {
-      this.getAllCaterogies();
+  getAllSubCaterogies() {
+    this.mode = 'Get Sous-Categorie';
+    this.categoriesService.getAllCategories().subscribe(data => {
+      this.categories = data;
     }, err => {
-      console.log('Error AdministrationCategoriesService - onDeleteCategory: ', err);
+      console.log('Error CategoriesService - getAllCategories: ', err);
     });
   }
 
-  AddCategorie(category) {
-    this.mode = 'Add Categorie';
-  }
-
-  GoToSubCategorie() {
-    this.router.navigateByUrl('/administration/sous-categories');
-  }
-
-  EditCategory(category) {
-    console.log('category', category.activation);
-    this.editCategory = category;
-    this.mode = 'Edit Categorie';
-    console.log('editCategory.active', this.editCategory.activation);
-  }
-
-  BackToCategories() {
-    this.mode = 'Get Categorie';
-    this.router.navigateByUrl('/administration/categories');
-  }
-
-  onSaveCategory(category) {
-    const url = this.categoriesService.categoriestUrl;
-    this.administrationCategoriesService.onSaveCategory(category, url).subscribe(data => {
-      this.getAllCaterogies();
+  getSubCategoriesByCategory(category) {
+    console.log('sous-categories: ', category);
+    const urlSubCategories = category._links.subCategories.href;
+    console.log('Url sous-categories: ', urlSubCategories);
+    this.categoriesService.getAllSousCategories(urlSubCategories).subscribe(data => {
+      this.subCategories = data;
     }, err => {
-      console.log('Error AdministrationCategoriesService - onSaveCategory: ', err);
-    });
-  }
-
-  onEditCategory(category) {
-    this.administrationCategoriesService.onEditCategory(category, this.editCategory._links.self.href).subscribe(data => {
-      this.getAllCaterogies();
-    }, err => {
-      console.log('Error AdministrationCategoriesService - onEditCategory: ', err);
+      console.log('Error CategoriesService - getAllSousCategories: ', err);
     });
   }
 }

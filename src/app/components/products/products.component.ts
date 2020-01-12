@@ -15,26 +15,26 @@ export class ProductsComponent implements OnInit {
   data: Date = new Date();
   public products;
   public categoryTitle;
+  public numberProductsByCategory = 0;
 
   constructor(private categoriesService: CategoriesService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        // console.log(activatedRoute.snapshot.params.idProduct);
-        const idCategory = atob(this.activatedRoute.snapshot.params.idProduct);
-        this.categoryTitle = this.activatedRoute.snapshot.params.idCategory;
-        // console.log(idProduct);
-        this.getProductsByCategory(idCategory);
+        const subCategory = atob(this.activatedRoute.snapshot.params.idProduct);
+        this.categoryTitle = this.activatedRoute.snapshot.params.idSubCategory;
+        this.getProductsBySubCategory(subCategory);
       }
     });
   }
 
-  getProductsByCategory(idCategory) {
-    this.categoriesService.getProductsByCategory(idCategory).subscribe(data => {
+  getProductsBySubCategory(subCategory) {
+    this.categoriesService.getProductsBySubCategory(subCategory).subscribe(data => {
       this.products = data;
+      this.numberProductsByCategory = this.products._embedded.products.length;
     }, err => {
-      console.log('Error CategoriesService - getProductsByCategory: ', err);
+      console.log('Error CategoriesService - getProductsBySubCategory: ', err);
     });
   }
 

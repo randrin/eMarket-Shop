@@ -1,11 +1,11 @@
 <div class="eMarket-products-wrapper">
-  <h3>Tous les produits de la catégorie: <span class="eMarket-category-title">{{categoryTitle}}</span></h3>
+  <h3>Nous avons trouvé au total <span class="eMarket-category-title">{{numberProductsByCategory}}</span> produits de la catégorie: <span class="eMarket-category-title">{{categoryTitle}}</span></h3>
   <div class="row" *ngIf="products">
     <div *ngFor="let product of products._embedded.products" class="eMarket-product-container col-lg-4 col-md-6">
         <div (click)="onGetProductDetails(product)" class="card card-product card-plain">
             <div class="card-image">
                 <a (click)="onGetProductDetails(product)">
-                  <img src="{{product.imageURl}}" alt="{{product.name}}" class="eMarket-products-image" />
+                  <img src="{{product.imagePath}}" alt="{{product.name}}" class="eMarket-products-image" />
                 </a>
             </div>
             <div class="card-body">

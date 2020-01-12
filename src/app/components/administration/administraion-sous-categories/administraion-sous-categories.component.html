@@ -1,10 +1,10 @@
-<div class="eMarket-shop-administration-categories-wrapper">
+<div class="eMarket-shop-administration-sous-categories-wrapper">
   <div class="container-fuild" *ngIf="categories">
     <div class="row">
       <div class="col-md-10">
         <div class="row">
-          <div class="col-md-6" *ngIf="mode == 'Get Categorie'">
-            <h6>Toutes les catégories eMarket-Shop</h6>
+          <div class="col-md-6" *ngIf="mode == 'Get Sous-Categorie'">
+            <h6>Toutes les sous-catégories eMarket-Shop</h6>
           </div>
           <div class="col-md-6" *ngIf="mode == 'Add Categorie'">
             <h6>Ajout Catégorie eMarket-Shop</h6>
@@ -24,28 +24,29 @@
             </button>
           </div>
         </div>
-        <!-- Liste Catégories -->
-        <div class="card card-plain eMarket-shop-wrapper" *ngIf="mode == 'Get Categorie'">
+        <!-- Liste Sous-Catégories -->
+        <div class="card card-plain eMarket-shop-wrapper" *ngIf="mode == 'Get Sous-Categorie'">
           <div class="card-body">
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                           <th class="text-left">ID Categorie</th>
-                          <th>Nom</th>
-                          <th>Description</th>
-                          <th class="text-center">Icon</th>
-                          <th class="text-right">Activation</th>
+                          <th>Nom Catégorie</th>
+                          <th>Sous-Catégories</th>
+                          <th class="text-center">Decription Catégorie</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr *ngFor="let category of categories._embedded.categories; let i = index;">
                             <td class="text-left">{{i + 1}}</td>
                             <td>{{category.name}}</td>
-                            <td>{{category.description}}</td>
-                            <td class="text-center"><i class="now-ui-icons {{category.imageIcon}}"></i></td>
-                            <td class="text-right">
-                              <bSwitch disabled [(ngModel)]="category.activation"></bSwitch></td>
+                            <td *ngIf="getSubCategoriesByCategory(category)">
+                              <span *ngFor="let subCategory of subCategories._embedded.subcategories" class="badge badge-success">
+                                {{subCategory.name}}
+                              </span>
+                            </td>
+                            <td class="text-center">Decription Catégorie</td>
                             <td class="td-actions text-right">
                               <button type="button" ngbTooltip="Modifier" (click)="EditCategory(category)" class="btn btn-success btn-icon btn-sm btn-round">
                                   <i class="now-ui-icons ui-2_settings-90"></i>

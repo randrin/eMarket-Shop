@@ -24,20 +24,22 @@ import { AdministrationProduitsComponent } from './components/administration/adm
 import { AdministrationUtilisateursComponent } from './components/administration/administration-utilisateurs/administration-utilisateurs.component';
 import { AdministrationCategoriesComponent } from './components/administration/administration-categories/administration-categories.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
+import { AdministraionSousCategoriesComponent } from './components/administration/administraion-sous-categories/administraion-sous-categories.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
-    { path: 'presentation',                     component: PresentationComponent },
-    { path: 'components',                       component: ComponentsComponent },
-    { path: 'sections',                         component: SectionsComponent },
-    { path: 'products/:idCategory/:idProduct',  component: ProductsComponent },
-    { path: 'product-details/:idProduct',       component: ProductDetailsComponent },
-    { path: 'categories',                       component: CategoriesComponent },
-    { path: 'login',                            component: LoginComponent },
-    { path: 'administration/produits',          component: AdministrationProduitsComponent },
-    { path: 'administration/categories',        component: AdministrationCategoriesComponent },
-    { path: 'administration/utilisateurs',      component: AdministrationUtilisateursComponent },
-    { path: 'nucleoicons',                      component: NucleoiconsComponent },
+    { path: 'presentation',                             component: PresentationComponent },
+    { path: 'components',                               component: ComponentsComponent },
+    { path: 'sections',                                 component: SectionsComponent },
+    { path: 'products/:idSubCategory/:idProduct',       component: ProductsComponent },
+    { path: 'product-details/:idProduct',               component: ProductDetailsComponent },
+    { path: 'categories/:idCategory/subCategories',     component: CategoriesComponent },
+    { path: 'login',                                    component: LoginComponent },
+    { path: 'administration/produits',                  component: AdministrationProduitsComponent },
+    { path: 'administration/categories',                component: AdministrationCategoriesComponent },
+    { path: 'administration/utilisateurs',              component: AdministrationUtilisateursComponent },
+    { path: 'administration/sous-categories',           component: AdministraionSousCategoriesComponent },
+    { path: 'nucleoicons',                              component: NucleoiconsComponent },
     { path: 'examples/aboutus',     component: AboutusComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },
     { path: 'examples/blogposts',   component: BlogpostsComponent },
