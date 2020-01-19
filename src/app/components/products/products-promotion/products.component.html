@@ -23,9 +23,6 @@
               <span class="price price-old"> &euro; {{product.unitPriceNew}}</span>
               <span class="price price-new"> &euro; {{product.unitPriceSold}}</span>
             </div>
-            <div class="price-container" *ngIf="!product.sale">
-              <span class="price price-new"> &euro; {{product.unitPriceNew}}</span>
-            </div>
             <div class="pull-right">
               <button class="btn btn-success btn-neutral btn-icon btn-round" placement="top" ngbTooltip="In Stock">
                 <span class="eMarket-product-stock">{{product.totalStock - product.totalPucharsed}}</span>

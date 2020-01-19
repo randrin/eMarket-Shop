@@ -1,0 +1,46 @@
+<div class="eMarket-products-promotion-wrapper">
+  <h3>Nous avons trouvé au total <span class="eMarket-promotion-title">{{numberProductsPromotion}}</span> produits en promotion.</h3>
+  <div class="row" *ngIf="productsPromotion">
+    <div *ngFor="let product of productsPromotion._embedded.products" class="eMarket-product-container col-lg-4 col-md-6">
+        <div (click)="onGetProductDetails(product)" class="card card-product card-plain">
+            <div class="eMarket-product-reduction" *ngIf="product.sale">
+              <span>{{product.reductionPercent}}%</span>
+            </div>
+            <div class="card-image">
+                <a (click)="onGetProductDetails(product)">
+                  <img src="{{product.imagePath}}" alt="{{product.name}}" class="eMarket-products-image" />
+                </a>
+            </div>
+            <div class="card-body">
+                <a href="#">
+                <h4 class="card-title">{{product.name}}</h4>
+                </a>
+                <p class="card-description">
+                  {{product.description}}.
+                </p>
+                <div class="card-footer">
+                  <div class="price-container">
+                    <span class="price price-old" *ngIf="product.sale"> &euro; {{product.unitPriceNew}}</span>
+                    <span class="price price-new"> &euro; {{product.unitPriceSold}}</span>
+                  </div>
+                    <div class="pull-right">
+                      <button class="btn btn-success btn-neutral btn-icon btn-round" placement="top" ngbTooltip="In Stock">
+                        <span class="eMarket-product-stock">{{product.totalStock - product.totalPucharsed}}</span>
+                        <i class="now-ui-icons shopping_box"></i> 
+                      </button>
+                      <button class="btn btn-danger btn-neutral btn-icon btn-round" placement="top" ngbTooltip="Remove from wishlist">
+                        <i class="now-ui-icons ui-2_favourite-28"></i>
+                      </button>
+                    </div>
+                </div>
+                <div class="eMarket-product-buy text-center">
+                  <button (click)="onGetProductDetails(product)" class="btn btn-primary btn-round">
+                    <i class="now-ui-icons shopping_cart-simple"></i> 
+                    Acheter
+                  </button>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

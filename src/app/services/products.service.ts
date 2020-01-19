@@ -10,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
 
-  private productstUrl = window['baseUrl'] + '/products';
+  private productsUrl = window['baseUrl'] + '/products';
+  private productsPromotionUrl = window['baseUrl'] + '/products/search/productsPromotion';
+  private productsActivatedUrl = window['baseUrl'] + '/products/search/productsActivated';
 
   constructor(
     public router: Router, private http: HttpClient) {
@@ -18,5 +20,13 @@ export class ProductsService {
 
   getProductDetails(urlProduct): Observable<Product> {
     return this.http.get<Product>(urlProduct);
+  }
+
+  getProductsActivated() {
+    return this.http.get(this.productsActivatedUrl);
+  }
+
+  getProductsPromotion() {
+    return this.http.get(this.productsPromotionUrl);
   }
 }

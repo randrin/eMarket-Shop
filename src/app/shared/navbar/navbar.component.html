@@ -18,12 +18,16 @@
                       <p>Components</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/categories']">
-                      <i class="now-ui-icons shopping_bag-16"></i>
+                <a ngbDropdown class="nav-item dropdown">
+                    <div class="nav-link dropdown-toggle" ngbDropdownToggle>
+                      <i class="now-ui-icons shopping_bag-16" aria-hidden="true"></i>
                       <p>Produits</p>
-                    </a>
-                </li>
+                    </div>
+                    <div ngbDropdownMenu class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]="['products/available']" fragment="headers"><i class="now-ui-icons shopping_shop"></i> In Emarket-Shop</a>
+                        <a class="dropdown-item" [routerLink]="['/products/promotion']" fragment="features"><i class="now-ui-icons shopping_tag-content"></i> Promotion</a>
+                    </div>
+                </a>
                 <a ngbDropdown class="nav-item dropdown">
                     <div class="nav-link dropdown-toggle" ngbDropdownToggle>
                       <i class="now-ui-icons files_paper" aria-hidden="true"></i>
@@ -60,7 +64,7 @@
                     </div>
                 </a>
                 <li class="nav-item" *ngIf="!isAuthentificated()">
-                    <a class="nav-link btn btn-default btn-round" [routerLink]="['/examples/register']">
+                    <a class="nav-link btn btn-default btn-round" [routerLink]="['/register']">
                         <i class="now-ui-icons files_single-copy-04"></i>
                         <p class="eMarket-shop-signup">Sign Up</p>
                     </a>

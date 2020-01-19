@@ -25,6 +25,8 @@ import { AdministrationUtilisateursComponent } from './components/administration
 import { AdministrationCategoriesComponent } from './components/administration/administration-categories/administration-categories.component';
 import { ProductDetailsComponent } from './components/products/product-details/product-details.component';
 import { AdministraionSousCategoriesComponent } from './components/administration/administraion-sous-categories/administraion-sous-categories.component';
+import { ProductsPromotionComponent } from './components/products/products-promotion/products-promotion.component';
+import { ProductsDisponibleComponent } from './components/products/products-disponible/products-disponible.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
@@ -33,7 +35,10 @@ const routes: Routes = [
     { path: 'sections',                                 component: SectionsComponent },
     { path: 'products/:idSubCategory/:idProduct',       component: ProductsComponent },
     { path: 'product-details/:idProduct',               component: ProductDetailsComponent },
+    { path: 'products/promotion',                       component: ProductsPromotionComponent },
+    { path: 'products/available',                       component: ProductsDisponibleComponent },
     { path: 'categories/:idCategory/subCategories',     component: CategoriesComponent },
+    { path: 'register',                                 component: RegisterComponent },
     { path: 'login',                                    component: LoginComponent },
     { path: 'administration/produits',                  component: AdministrationProduitsComponent },
     { path: 'administration/categories',                component: AdministrationCategoriesComponent },
@@ -49,7 +54,6 @@ const routes: Routes = [
     { path: 'examples/pricing',     component: PricingComponent },
     { path: 'examples/productpage', component: ProductpageComponent },
     { path: 'examples/profile',     component: ProfileComponent },
-    { path: 'examples/register',    component: RegisterComponent }
 ];
 
 @NgModule({
