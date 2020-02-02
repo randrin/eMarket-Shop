@@ -18,17 +18,19 @@ export class AppComponent implements OnInit {
     @ViewChild(NavbarComponent) navbar: NavbarComponent;
     public categories;
     public subCategories;
+    public focus;
 
-    constructor( private renderer : Renderer, private router: Router, @Inject(DOCUMENT) private document: any,
-     private element : ElementRef, public location: Location, private categoriesService: CategoriesService,
+    constructor( private renderer: Renderer, private router: Router, @Inject(DOCUMENT) private document: any,
+     private element: ElementRef, public location: Location, private categoriesService: CategoriesService,
      private authentificationService: AuthentificationService, private categoriesServices: CategoriesService) {}
+
     ngOnInit() {
         var navbar : HTMLElement = this.element.nativeElement.children[0].children[0];
         this._router = this.router.events.filter(event => event instanceof NavigationEnd).subscribe((event: NavigationEnd) => {
             if (this.location.path() !== '/sections') {
                 if (window.outerWidth > 991) {
                     window.document.children[0].scrollTop = 0;
-                }else{
+                } else {
                     window.document.activeElement.scrollTop = 0;
                 }
             }
@@ -67,19 +69,18 @@ export class AppComponent implements OnInit {
         }
         this.categoriesService.getAllCategories().subscribe(data => {
             this.categories = data;
-          },
-          err => {
+        }, err => {
             console.log('Error CategoriesService: ', err);
-          });
-          this.authentificationService.retrieveToken();
+        });
+        this.authentificationService.retrieveToken();
     }
+
     removeFooter() {
         var titlee = this.location.prepareExternalUrl(this.location.path());
         titlee = titlee.slice( 1 );
-        if(titlee === 'signup' || titlee === 'nucleoicons'){
+        if (titlee === 'signup' || titlee === 'nucleoicons') {
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
@@ -88,13 +89,12 @@ export class AppComponent implements OnInit {
         console.log('category selected: ', category.name);
         // this.router.navigateByUrl('/products/' + category.name + '/' + btoa(urlSubCategories));
         // this.router.navigateByUrl('/categories/' + category.id + '/subCategories');
-
-            this.categoriesServices.getSubCategoriesByCategory(category.name).subscribe(data => {
-              this.subCategories = data;
-            },
-            err => {
-              console.log('Error CategoriesService - getSubCategoriesByCategory: ', err);
-            });
+        // this.getAllProductsByCategory(category);
+        this.categoriesServices.getSubCategoriesByCategory(category.name).subscribe(data => {
+            this.subCategories = data;
+        }, err => {
+            console.log('Error CategoriesService - getSubCategoriesByCategory: ', err);
+        });
     }
 
     getProductsBySubCategory(subCategory) {
@@ -103,6 +103,10 @@ export class AppComponent implements OnInit {
         console.log('urlProducts: ', urlProducts);
         this.router.navigateByUrl('/products/' + subCategory.name + '/' + btoa(urlProducts));
     }
+
+    // getAllProductsByCategory(category) {
+    //     console.log('Category selected: ', category);
+    // }
 
     isAuthentificated () {
         this.authentificationService.isAuthentificated();

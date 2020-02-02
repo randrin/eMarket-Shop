@@ -1,45 +1,59 @@
 <app-navbar></app-navbar>
 <div class="main">
-    <div class="section">
-        <div class="container-fluid">
-            <h2 class="section-title">Find what you need</h2>
-            <div class="row">
-              <div class="col-md-2">
-                <div class="nav-pills-navigation" *ngIf="categories">
-                  <div class="nav-pills-wrapper">
-                    <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
-                      <ngb-tab *ngFor="let category of categories._embedded.categories">
-                        <ng-template ngbTabTitle>
-                          <span (click)="getSubCategories(category)">
-                            <i class="now-ui-icons {{category.imageIcon}}"></i> 
-                            {{ category.name }}
-                          </span>
-                        </ng-template>
-                      </ngb-tab>
-                    </ngb-tabset>
-                  </div>
-                </div>
+  <div class="section eMarket-section">
+      <div class="container-fluid">
+        <div class="eMarket-home-navbar">
+          <div class="col-md-6">
+            <div class="input-group" [ngClass]="{'input-group-focus':focus===true}">
+              <div class="input-group-prepend">
+                <span class="input-group-text">
+                  <i class="fa fa fa-search"></i>
+                </span>
               </div>
-              <div class="col-md-10">
-                <div class="row">
-                  <div class="nav-pills-navigation" *ngIf="subCategories">
-                    <div class="nav-pills-wrapper">
-                    <ngb-tabset type="pills" class="nav nav-pills nav-pills-info justify-content-start tab-space">
-                      <ngb-tab *ngFor="let subCategory of subCategories._embedded.subcategories">
-                        <ng-template ngbTabTitle>
-                          <span (click)="getProductsBySubCategory(subCategory)">
-                            {{subCategory.name}}
-                          </span>
-                        </ng-template>
-                      </ngb-tab>
-                    </ngb-tabset>
-                    </div>
-                    </div>
-                </div>
-                <router-outlet></router-outlet>
+              <input class="form-control eMarket-search" placeholder="Rechercher un produit ..." type="text" (focus)="focus=true" (blur)="focus=false">
+            </div>
+          </div>
+        </div>
+        <div class="eMarket-home-content row">
+          <div class="col-md-2 eMarket-col">
+            <div class="nav-pills-navigation" *ngIf="categories">
+              <div class="nav-pills-wrapper">
+                <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
+                  <ngb-tab *ngFor="let category of categories._embedded.categories">
+                    <ng-template ngbTabTitle>
+                      <span (click)="getSubCategories(category)">
+                        <i class="now-ui-icons {{category.imageIcon}}"></i> 
+                        {{ category.name }}
+                      </span>
+                    </ng-template>
+                  </ngb-tab>
+                </ngb-tabset>
               </div>
             </div>
+          </div>
+          <div class="col-md-10 eMarket-col">
+            <div class="row">
+              <div class="nav-pills-navigation" *ngIf="subCategories">
+                <div class="nav-pills-wrapper">
+                  <ngb-tabset type="pills" class="nav nav-pills nav-pills-info justify-content-start tab-space">
+                    <ngb-tab *ngFor="let subCategory of subCategories._embedded.subcategories">
+                      <ng-template ngbTabTitle>
+                        <span (click)="getProductsBySubCategory(subCategory)">
+                          {{subCategory.name}}
+                        </span>
+                      </ng-template>
+                    </ngb-tab>
+                  </ngb-tabset>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <h3>Nous avons trouvé au total <span class="eMarket-category-title">{{numberProductsByCategory}}</span> produits de la catégorie: <span class="eMarket-category-title">{{categoryTitle}}</span></h3>
+            </div> -->
+            <router-outlet></router-outlet>
+          </div>
         </div>
-    </div>
+      </div>
+  </div>
 </div>
-<!-- <router-outlet></router-outlet> -->
+<app-footer></app-footer>

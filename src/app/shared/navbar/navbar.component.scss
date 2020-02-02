@@ -8,4 +8,26 @@
             font-size: 13px;
         }
     }
+    .eMarket-shopping-cart {
+        left: 70px;
+        position: relative;
+        @media only screen and (max-width: 767px) {
+            left: 0;
+            top: -30px;
+        }
+    }
+    .eMarket-shop-number-products {
+        position: relative;
+        top: -15px;
+        left: 5px;
+        border: 1px solid #f96332;
+        background-color: #f96332;
+        width: 30px;
+        height: 30px;
+        border-radius: 21px;
+    }
+}
+.navbar {
+    height: 80px;
+    padding-top: 10px;
 }

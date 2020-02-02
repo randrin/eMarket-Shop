@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule, } from '@angular/common';
 import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
-
 import { PresentationComponent } from './presentation/presentation.component';
 import { ComponentsComponent } from './components/components.component';
 import { SectionsComponent } from './sections/sections.component';
@@ -27,6 +26,8 @@ import { ProductDetailsComponent } from './components/products/product-details/p
 import { AdministraionSousCategoriesComponent } from './components/administration/administraion-sous-categories/administraion-sous-categories.component';
 import { ProductsPromotionComponent } from './components/products/products-promotion/products-promotion.component';
 import { ProductsDisponibleComponent } from './components/products/products-disponible/products-disponible.component';
+import { CartComponent } from './components/cart/cart.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
     // { path: '', redirectTo: 'presentation', pathMatch: 'full' },
@@ -44,6 +45,8 @@ const routes: Routes = [
     { path: 'administration/categories',                component: AdministrationCategoriesComponent },
     { path: 'administration/utilisateurs',              component: AdministrationUtilisateursComponent },
     { path: 'administration/sous-categories',           component: AdministraionSousCategoriesComponent },
+    { path: 'shopping-cart',                            component: CartComponent },
+    { path: '**',                                       component: PageNotFoundComponent },
     { path: 'nucleoicons',                              component: NucleoiconsComponent },
     { path: 'examples/aboutus',     component: AboutusComponent },
     { path: 'examples/blogpost',    component: BlogpostComponent },

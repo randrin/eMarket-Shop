@@ -19,11 +19,14 @@ import { CategoriesService } from './services/categories.service';
 import { AdministrationCategoriesService } from './services/administration-categories.service';
 import { AdministrationUtilisateursService } from './services/administration-utilisateurs.service';
 import { AdministrationProduitsService } from './services/administration-produits.service';
+import { FooterComponent } from './components/footer/footer.component';
+import { CartService } from './services/cart.service';
 
 @NgModule({
     declarations: [
         AppComponent,
-        NavbarComponent
+        NavbarComponent,
+        FooterComponent
     ],
     imports: [
         BrowserAnimationsModule,
@@ -43,7 +46,8 @@ import { AdministrationProduitsService } from './services/administration-produit
         CategoriesService,
         AdministrationCategoriesService,
         AdministrationUtilisateursService,
-        AdministrationProduitsService
+        AdministrationProduitsService,
+        CartService
     ],
     bootstrap: [AppComponent]
 })

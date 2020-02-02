@@ -12,7 +12,7 @@ export class LoginComponent implements OnInit {
     data : Date = new Date();
     focus;
     focus1;
-    
+
     constructor(private authentificationService: AuthentificationService, private router: Router) { }
 
     ngOnInit() {
@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
         var navbar = document.getElementsByTagName('nav')[0];
         navbar.classList.add('navbar-transparent');
     }
+
     ngOnDestroy(){
         var body = document.getElementsByTagName('body')[0];
         body.classList.remove('login-page');
@@ -38,5 +39,4 @@ export class LoginComponent implements OnInit {
             console.log('Error AuthentificationService - onLogin: ', err);
         });
     }
-
 }
