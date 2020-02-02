@@ -16,6 +16,7 @@ export class ProductsComponent implements OnInit {
   public products;
   public categoryTitle;
   public numberProductsByCategory = 0;
+  public isCategoryTitle = false;
 
   constructor(private categoriesService: CategoriesService, private router: Router, private activatedRoute: ActivatedRoute) {}
 
@@ -39,6 +40,7 @@ export class ProductsComponent implements OnInit {
   }
 
   onGetProductDetails(product: Product) {
+    this.isCategoryTitle = true;
     const urlProduct = btoa(product._links.product.href);
     this.router.navigateByUrl('product-details/' + urlProduct);
   }

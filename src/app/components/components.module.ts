@@ -31,6 +31,8 @@ import { ProductDetailsComponent } from './products/product-details/product-deta
 import { AdministraionSousCategoriesComponent } from './administration/administraion-sous-categories/administraion-sous-categories.component';
 import { ProductsPromotionComponent } from './products/products-promotion/products-promotion.component';
 import { ProductsDisponibleComponent } from './products/products-disponible/products-disponible.component';
+import { CartComponent } from './cart/cart.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 @NgModule({
     imports: [
@@ -66,7 +68,9 @@ import { ProductsDisponibleComponent } from './products/products-disponible/prod
         ProductDetailsComponent,
         AdministraionSousCategoriesComponent,
         ProductsPromotionComponent,
-        ProductsDisponibleComponent
+        ProductsDisponibleComponent,
+        CartComponent,
+        PageNotFoundComponent
     ],
     exports: [ ComponentsComponent ]
 })

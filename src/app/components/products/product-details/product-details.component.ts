@@ -23,5 +23,4 @@ export class ProductDetailsComponent implements OnInit {
       console.log('Error ProductsService - getProductDetails: ', err);
     });
   }
-
 }

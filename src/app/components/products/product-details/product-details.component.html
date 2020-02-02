@@ -1,3 +1,206 @@
-<div *ngIf="currentProduct">
-    {{currentProduct.name}}
+<div class="wrapper" *ngIf="currentProduct">
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <ngb-carousel>
+                        <ng-template ngbSlide>
+                        <img class="d-block img-raised" src="{{currentProduct.imagePath}}" alt="{{currentProduct.name}}" alt="First slide">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                            <img class="d-block img-raised" src="assets/img/pp-2.jpg" alt="Second slide">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                        <img class="d-block img-raised" src="assets/img/pp-3.jpg" alt="Third slide">
+                        </ng-template>
+                        <ng-template ngbSlide>
+                        <img class="d-block img-raised" src="assets/img/pp-4.jpg" alt="Third slide">
+                        </ng-template>
+                    </ngb-carousel>
+                </div>
+                <div class="col-md-6 ml-auto mr-auto">
+                    <h2 class="title"> {{currentProduct.name}} </h2>
+                    <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
+                    <h2 class="main-price">$3,390</h2>
+                    <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" class="card-plain">
+                        <ngb-panel id="config-panel-one">
+                            <ng-template ngbPanelTitle>
+                                <a class="collapsed">
+                                    Description
+                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
+                                </a>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                    <p>Eres' daring 'Grigri Fortune' swimsuit has the fit and coverage of a bikini in a one-piece silhouette. This fuchsia style is crafted from the label's sculpting peau douce fabric and has flattering cutouts through the torso and back. Wear yours with mirrored sunglasses on vacation.</p>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <a class="collapsed">
+                                    Designer Information
+                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
+                                </a>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <p>An infusion of West Coast cool and New York attitude, Rebecca Minkoff is synonymous with It girl style. Minkoff burst on the fashion scene with her best-selling 'Morning After Bag' and later expanded her offering with the Rebecca Minkoff Collection - a range of luxe city staples with a "downtown romantic" theme.</p>
+                            </ng-template>
+                        </ngb-panel>
+                        <ngb-panel>
+                            <ng-template ngbPanelTitle>
+                                <a class="collapsed">
+                                    Details and Care
+                                    <i class="now-ui-icons arrows-1_minimal-down"></i>
+                                </a>
+                            </ng-template>
+                            <ng-template ngbPanelContent>
+                                <ul>
+                                    <li>Storm and midnight-blue stretch cotton-blend</li>
+                                    <li>Notch lapels, functioning buttoned cuffs, two front flap pockets, single vent, internal pocket</li>
+                                    <li>Two button fastening</li>
+                                    <li>84% cotton, 14% nylon, 2% elastane</li>
+                                    <li>Dry clean</li>
+                                </ul>
+                            </ng-template>
+                        </ngb-panel>
+                    </ngb-accordion>
+                    <div class="row pick-size">
+                        <div class="col-lg-6 col-md-8 col-sm-6">
+                            <label>Select color</label>
+                            <angular2-multiselect [data]="dropdownList1" [(ngModel)]="selectedItems1"
+                                [settings]="dropdownSettings1"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)">
+                            </angular2-multiselect>
+                        </div>
+                        <div class="col-lg-6 col-md-8 col-sm-6">
+                            <label>Select size</label>
+                            <angular2-multiselect [data]="dropdownList" [(ngModel)]="selectedItems"
+                                [settings]="dropdownSettings"
+                                (onSelect)="onItemSelect($event)"
+                                (onDeSelect)="OnItemDeSelect($event)"
+                                (onSelectAll)="onSelectAll($event)"
+                                (onDeSelectAll)="onDeSelectAll($event)">
+                            </angular2-multiselect>
+                        </div>
+                    </div>
+                    <div class="row justify-content-end">
+                        <button class="btn btn-primary mr-3">Add to Cart &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="section related-products" data-background-color="black">
+        <div class="container">
+            <h3 class="title text-center">You may also be interested in:</h3>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-product">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img rounded" src="assets/img/saint-laurent.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="category text-danger">Trending</h6>
+                            <h4 class="card-title">
+                                <a href="#pablo" class="card-link">Dolce & Gabbana</a>
+                            </h4>
+                            <div class="card-description">
+                                Dolce & Gabbana's 'Greta' tote has been crafted in Italy from hard-wearing red textured-leather.
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-container">
+                                    <span class="price">€1,459</span>
+                                </div>
+                                <button class="btn btn-neutral btn-icon btn-round pull-right" placement="top" ngbTooltip="Add to wishlist">
+                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-product">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img rounded" src="assets/img/gucci.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="category text-muted">Popular</h6>
+                            <h4 class="card-title">
+                                <a href="#pablo" class="card-link">Balmain</a>
+                            </h4>
+                            <div class="card-description">
+                                Balmain's mid-rise skinny jeans are cut with stretch to ensure they retain their second-skin fit but move comfortably.
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-container">
+                                    <span class="price">€459</span>
+                                </div>
+                                <button class="btn btn-neutral btn-icon btn-round pull-right" placement="top" ngbTooltip="Add to wishlist">
+                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-product">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img rounded" src="assets/img/wooyoungmi.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="category text-muted">Popular</h6>
+                            <h4 class="card-title">
+                                <a href="#pablo" class="card-link">Balenciaga</a>
+                            </h4>
+                            <div class="card-description">
+                                Balenciaga's black textured-leather wallet is finished with the label's iconic 'Giant' studs. This is where you can...
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-container">
+                                    <span class="price">€559</span>
+                                </div>
+                                <button class="btn btn-neutral btn-icon btn-round pull-right" placement="top" ngbTooltip="Add to wishlist">
+                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="card card-product">
+                        <div class="card-image">
+                            <a href="#pablo">
+                                <img class="img rounded" src="assets/img/saint-laurent1.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="category text-rose">Trending</h6>
+                            <h4 class="card-title">
+                                <a href="#pablo" class="card-link">Dolce & Gabbana</a>
+                            </h4>
+                            <div class="card-description">
+                                Dolce & Gabbana's 'Greta' tote has been crafted in Italy from hard-wearing red textured-leather.
+                            </div>
+                            <div class="card-footer">
+                                <div class="price-container">
+                                    <span class="price"> € 1,359</span>
+                                </div>
+                                <button class="btn btn-neutral btn-icon btn-round pull-right" placement="top" ngbTooltip="Add to wishlist">
+                                    <i class="now-ui-icons ui-2_favourite-28"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
