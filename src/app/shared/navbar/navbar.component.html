@@ -108,6 +108,13 @@
                         <i class="now-ui-icons shopping_cart-simple"></i>
                         <p class="eMarket-shop-number-products">2</p>
                     </a>
+                    <div x-placement="bottom-left" class="eMarket-shopping-cart-items dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons business_bulb-63"></i> Mes Commandes</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons text_align-left"></i> Mon Espace Personnel</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons design_bullet-list-67"></i> Mes Avantages</a>
+                        <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons location_pin"></i> Mon Parrainage</a>
+                        <a class="dropdown-item" (click)="onLogout()"><i class="now-ui-icons tech_mobile"></i> LoGout</a>
+                    </div>
                 </li>
             </ul>
         </div>

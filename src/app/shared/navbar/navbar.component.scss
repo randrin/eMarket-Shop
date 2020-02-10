@@ -8,12 +8,22 @@
             font-size: 13px;
         }
     }
+    .eMarket-shopping-cart-items {
+        display: none;
+    }
     .eMarket-shopping-cart {
         left: 70px;
         position: relative;
         @media only screen and (max-width: 767px) {
             left: 0;
             top: -30px;
+        }
+        &:hover,
+        &:focus {
+            .eMarket-shopping-cart-items {
+                display: block;
+                top: 66px !important;
+            }
         }
     }
     .eMarket-shop-number-products {
