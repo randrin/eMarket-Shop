@@ -106,7 +106,7 @@
                 <li class="nav-item">
                     <a class="nav-link btn btn-default btn-icon btn-round btn-lg" [routerLink]="['/shopping-cart']">
                         <i class="now-ui-icons shopping_cart-simple"></i>
-                        <p class="eMarket-shop-number-products">2</p>
+                        <p class="eMarket-shop-number-products">{{cartService.getCurrentCart().items.size}}</p>
                     </a>
                     <div x-placement="bottom-left" class="eMarket-shopping-cart-items dropdown-menu dropdown-menu-right">
                         <a class="dropdown-item" [routerLink]=""><i class="now-ui-icons business_bulb-63"></i> Mes Commandes</a>

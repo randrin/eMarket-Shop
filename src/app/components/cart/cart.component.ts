@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class CartComponent implements OnInit {
 
   public tableData3;
+  public shoppingCart;
   
-  constructor() { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit() {
-
+    this.getProductsCart();
     this.tableData3 = {
-      headerRow: [ '', '', 'Product', 'Color', 'Size', 'Price', 'QTY', 'Amount'],
+      headerRow: [ '', '', 'Product', 'Color', 'Size', 'Price', 'QTY', 'Unit Price'],
       dataRows: [
           ['saint-laurent.jpg', '	Suede Biker Jacket', 'by Saint Laurent', 'Black', 'M', '3390', '1', '3390'],
           ['balmain.jpg', '	Jersey T-Shirt',  'by Balmain', 'Black', 'M', '499', '2', '998'],
@@ -31,4 +33,8 @@ export class CartComponent implements OnInit {
     }
     return total;
 };
+
+getProductsCart() {
+  this.shoppingCart = this.cartService.getCurrentCart().items.values();
+}
 }

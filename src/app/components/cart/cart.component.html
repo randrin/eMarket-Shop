@@ -23,16 +23,16 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let row of tableData3.dataRows">
+                                <tr *ngFor="let row of cartService.getCurrentCart().items.values()">
                                     <td>
                                         <div class="img-container">
-                                            <img src="assets/img/{{row[0]}}" alt="...">
+                                            <img src="{{row.imagePath}}" alt="{{row.name}}" />
                                         </div>
                                     </td>
                                     <td class="td-name">
-                                        <a>{{row[1]}}</a>
+                                        <a>{{row.name}}</a>
                                         <br />
-                                        <small>{{row[2]}}</small>
+                                        <small>{{row.description}}</small>
                                     </td>
                                     <td>{{row[3]}}</td>
                                     <td>{{row[4]}}</td>

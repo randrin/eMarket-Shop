@@ -1,8 +1,12 @@
-<div class="wrapper" *ngIf="currentProduct">
+<div class="eMarket-products-details-wrapper" *ngIf="currentProduct">
     <div class="section">
         <div class="container">
             <div class="row">
                 <div class="col-md-5">
+                    <div class="text-center">
+                        <h2 class="title"> {{currentProduct.name}} </h2>
+                        <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
+                    </div>
                     <ngb-carousel>
                         <ng-template ngbSlide>
                         <img class="d-block img-raised" src="{{currentProduct.imagePath}}" alt="{{currentProduct.name}}" alt="First slide">
@@ -17,11 +21,26 @@
                         <img class="d-block img-raised" src="assets/img/pp-4.jpg" alt="Third slide">
                         </ng-template>
                     </ngb-carousel>
+                    <div  class="text-center mt-5">
+                        <h2 class="main-price">$3,390</h2>
+                    </div>
+                    <div class="row">
+                        <form #f="ngForm" (ngSubmit)="AddProductToCart(product)">
+                            <div class="row">
+                                <div class="col-lg-6 col-md-8 col-sm-6">
+                                    <label>Select Quantity</label>
+                                    <div class="form-group">
+                                        <input type="number" value="1" name="quantity" class="form-control" [(ngModel)]="currentProduct.totalPurcharsed" />
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-8 col-sm-6">
+                                    <button class="btn btn-primary btn-lg mr-3">Add to Cart &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="col-md-6 ml-auto mr-auto">
-                    <h2 class="title"> {{currentProduct.name}} </h2>
-                    <h5 class="category">Slim-Fit Leather Biker Jacket</h5>
-                    <h2 class="main-price">$3,390</h2>
                     <ngb-accordion #acc="ngbAccordion" activeIds="config-panel-one" class="card-plain">
                         <ngb-panel id="config-panel-one">
                             <ng-template ngbPanelTitle>
@@ -84,9 +103,6 @@
                                 (onDeSelectAll)="onDeSelectAll($event)">
                             </angular2-multiselect>
                         </div>
-                    </div>
-                    <div class="row justify-content-end">
-                        <button class="btn btn-primary mr-3">Add to Cart &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
                     </div>
                 </div>
             </div>

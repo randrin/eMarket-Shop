@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 import { AuthentificationService } from 'app/services/authentification.service';
 import { Router } from '@angular/router';
+import { CartService } from 'app/services/cart.service';
 
 @Component({
     selector: 'app-navbar',
@@ -14,7 +15,7 @@ export class NavbarComponent implements OnInit {
     public username;
 
     constructor(public location: Location, private element : ElementRef, private authentificationService: AuthentificationService,
-        private router: Router) {
+        private router: Router, private cartService: CartService) {
         this.sidebarVisible = false;
     }
 
