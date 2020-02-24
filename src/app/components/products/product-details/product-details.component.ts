@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ProductsService } from 'app/services/products.service';
 import { Product } from 'app/models/product';
 import { CartService } from 'app/services/cart.service';
+import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-product-details',
@@ -20,9 +21,10 @@ export class ProductDetailsComponent implements OnInit {
   selectedItems1 = [];
   selectedQuantity = [];
   dropdownSettings1 = {};
+  closeResult: string;
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private productsService: ProductsService,
-    private cartService: CartService) { }
+    private cartService: CartService, private modalService: NgbModal) { }
 
   ngOnInit() {
     this.initValueSelectDropdown();
@@ -117,8 +119,49 @@ this.dropdownSettings1 = {
       console.log(items);
   }
 
-  AddProductToCart(product: Product) {
-    console.log('Product to cart: ', product);
+  AddProductToCart() {
+    console.log('Product to cart quantity: ', this.currentProduct.quantity);
     this.cartService.addProductToCart(this.currentProduct);
+  }
+
+  open(content, type, modalDimension) {
+    if (modalDimension === 'sm' && type === 'modal_mini') {
+        this.modalService.open(content, { windowClass: 'modal-mini modal-primary', size: 'sm' }).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    } else if (modalDimension === 'md' && type === 'Login') {
+      this.modalService.open(content, { windowClass: 'modal-login modal-primary' }).result.then((result) => {
+          this.closeResult = `Closed with: ${result}`;
+      }, (reason) => {
+          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      });
+    } else {
+        this.modalService.open(content).result.then((result) => {
+            this.closeResult = `Closed with: ${result}`;
+        }, (reason) => {
+            this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+        });
+    }
+  }
+
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+        return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+        return 'by clicking on a backdrop';
+    } else {
+        return  `with: ${reason}`;
+    }
+  }
+  GoToShoppingStore() {
+    this.router.navigateByUrl('/products/available');
+  }
+  GoToShoppingCart() {
+    this.router.navigateByUrl('/shopping-cart');
+  }
+  getReductionPromotion(unitPriceNew, unitPriceSold) {
+    return (unitPriceSold - unitPriceNew);
   }
 }

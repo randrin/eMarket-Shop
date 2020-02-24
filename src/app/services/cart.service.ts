@@ -20,11 +20,14 @@ export class CartService {
     let cart = this.caddies.get(this.currentCartName);
     let productItem: ProductItem = cart.items.get(product.id);
     if (productItem) {
-      productItem.quantity += product.totalStock;
+      console.log('Before productItem.quantity .......: ', productItem.quantity);
+      productItem.quantity += product.quantity;
+      cart.items.set(product.id, productItem);
+      console.log('After productItem.quantity .......: ', productItem.quantity);
     } else {
       productItem = new ProductItem();
       productItem.price = product.unitPriceNew;
-      productItem.quantity = product.totalStock;
+      productItem.quantity = product.quantity;
       productItem.product = product;
       cart.items.set(product.id, productItem);
     }

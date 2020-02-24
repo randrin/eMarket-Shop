@@ -2,4 +2,10 @@
     .section {
         padding: 0px 0px 70px;
     }
+    .eMarket-product-confirmation-modal {
+        .modal-content {
+            min-width: 830px;
+            transform: translate(-25%, 10px);
+        }
+    }
 }

@@ -5,6 +5,8 @@ export interface Product {
   description: string;
   unitPriceNew: number;
   unitPriceSold: number;
+  color: string,
+  size: string,
   sale: boolean;
   reductionPercent: number;
   imagePath: string;
@@ -13,6 +15,7 @@ export interface Product {
   totalStock: number;
   totalPurcharsed: number;
   numberOfViews: number;
+  quantity: number;
   _links: {
     self: {
       href: string;

@@ -2,8 +2,25 @@
 // Modals
 // Now Ui Kit Design element Dialogs
 // --------------------------------------------------
-.modal-content {
+.eMarket-product-price {
+    color: #f96332;
+    font-weight: 600;
+}
+.eMarket-product-price-reduction {
+    font-weight: 600;
+}
+.eMarket-product-modal-delimiter {
+    border-bottom: 1px solid rgba(136,136,136,.3);
+    margin: 10px 0px;
+}
+.eMarket-product-modal-description {
+    display: grid;
+}
+.eMarket-product-price-modal-wrapper {
+    margin: 0px 0px 30px;
+}
 
+.modal-content {
   border-radius: $border-radius-small;
   border: none;
   box-shadow: 0px 10px 50px 0px rgba(0, 0, 0, 0.5);

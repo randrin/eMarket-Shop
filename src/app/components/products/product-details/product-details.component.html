@@ -25,17 +25,47 @@
                         <h2 class="main-price">$3,390</h2>
                     </div>
                     <div class="row">
-                        <form #f="ngForm" (ngSubmit)="AddProductToCart(product)">
+                        <form #f="ngForm" (ngSubmit)="AddProductToCart()">
                             <div class="row">
                                 <div class="col-lg-6 col-md-8 col-sm-6">
                                     <label>Select Quantity</label>
                                     <div class="form-group">
-                                        <input type="number" value="1" name="quantity" class="form-control" [(ngModel)]="currentProduct.totalPurcharsed" />
+                                        <input type="number" [value]="1" name="quantity" class="form-control" [(ngModel)]="currentProduct.quantity" />
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-8 col-sm-6">
-                                    <button class="btn btn-primary btn-lg mr-3">Add to Cart &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
+                                    <button class="btn btn-primary btn-lg mr-3" (click)="open(classic,'' , '')">Add to Cart &nbsp;<i class="now-ui-icons shopping_cart-simple"></i></button>
                                 </div>
+                                <!-- Modal Confirmation Add Product to cart -->
+                                <ng-template #classic let-c="close" let-d="dismiss" class="eMarket-product-confirmation-modal">
+                                    <div class="modal-header justify-content-center">
+                                        <button type="button" class="close" (click)="d('Cross click')">
+                                            <i class="now-ui-icons ui-1_simple-remove"></i>
+                                        </button>
+                                        <h4 class="title">Vous venez d’ajouter à votre panier le(s) produit(s) suivant(s). Très bon choix !</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <img src="{{currentProduct.imagePath}}" alt="{{currentProduct.name}}" />
+                                            </div>
+                                            <div class="col-md-8 eMarket-product-modal-description">
+                                                <span>Quantité: <b>{{currentProduct.quantity}}</b></span>
+                                                <span>Couleur: <b>{{currentProduct.color}}</b></span>
+                                                <span *ngIf="currentProduct.size != null || currentProduct.size != ''">Dimension: <b>{{currentProduct.size}}</b></span>
+                                                <span class="eMarket-product-modal-delimiter"></span>
+                                                <span class="eMarket-product-price-modal-wrapper" *ngIf="currentProduct.sale">
+                                                    <span class="eMarket-product-price">{{currentProduct.unitPriceSold}} &euro;</span> au lieu de {{currentProduct.unitPriceNew}} &euro; <br>
+                                                    <span class="eMarket-product-price-reduction">{{getReductionPromotion(currentProduct.unitPriceNew, currentProduct.unitPriceSold)}} &euro; de reduction</span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" (click)="GoToShoppingStore(); c('Close click')">Continuer mes achats</button>
+                                        <button type="button" class="btn btn-danger" (click)="GoToShoppingCart(); c('Close click')">Terminer ma commande</button>
+                                    </div>
+                                </ng-template>
                             </div>
                         </form>
                     </div>
