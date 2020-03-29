@@ -10,9 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ProductsService {
 
-  private productsUrl = window['baseUrl'] + '/products';
-  private productsPromotionUrl = window['baseUrl'] + '/products/search/productsPromotion';
-  private productsActivatedUrl = window['baseUrl'] + '/products/search/productsActivated';
+  private productsUrl = window['baseUrl'] + '/emarketProducts';
+  private productsPromotionUrl = window['baseUrl'] + '/emarketProducts/search/productsPromotion';
+  private productsActivatedUrl = window['baseUrl'] + '/emarketProducts/search/productsActivated';
 
   constructor(
     public router: Router, private http: HttpClient) {

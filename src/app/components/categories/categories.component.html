@@ -49,7 +49,7 @@
                     <div class="nav-pills-navigation" *ngIf="categories">
                       <div class="nav-pills-wrapper">
                         <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
-                          <ngb-tab *ngFor="let category of categories._embedded.categories">
+                          <ngb-tab *ngFor="let category of categories._embedded.emarketCategories">
                             <ng-template ngbTabTitle>
                               <span (click)="getProducts(category)">
                                 <i class="now-ui-icons objects_umbrella-13"></i> 

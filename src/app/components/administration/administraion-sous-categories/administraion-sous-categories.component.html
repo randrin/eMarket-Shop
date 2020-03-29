@@ -38,11 +38,11 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let category of categories._embedded.categories; let i = index;">
+                        <tr *ngFor="let category of categories._embedded.emarketCategories; let i = index;">
                             <td class="text-left">{{i + 1}}</td>
                             <td>{{category.name}}</td>
                             <td *ngIf="getSubCategoriesByCategory(category)">
-                              <span *ngFor="let subCategory of subCategories._embedded.subcategories" class="badge badge-success">
+                              <span *ngFor="let subCategory of subCategories._embedded.emarketSubCategories" class="badge badge-success">
                                 {{subCategory.name}}
                               </span>
                             </td>

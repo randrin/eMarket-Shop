@@ -71,7 +71,7 @@ export class AdministraionSousCategoriesComponent implements OnInit {
 
   getSubCategoriesByCategory(category) {
     console.log('sous-categories: ', category);
-    const urlSubCategories = category._links.subCategories.href;
+    const urlSubCategories = category._links.emarketSubCategories.href;
     console.log('Url sous-categories: ', urlSubCategories);
     this.categoriesService.getAllSousCategories(urlSubCategories).subscribe(data => {
       this.subCategories = data;

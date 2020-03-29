@@ -19,7 +19,7 @@
             <div class="nav-pills-navigation" *ngIf="categories">
               <div class="nav-pills-wrapper">
                 <ngb-tabset type="pills" class="nav nav-pills nav-pills-primary vertical-pills nav-pills-icons" [orientation]="'vertical'">
-                  <ngb-tab *ngFor="let category of categories._embedded.categories">
+                  <ngb-tab *ngFor="let category of categories._embedded.emarketCategories">
                     <ng-template ngbTabTitle>
                       <span (click)="getSubCategories(category)">
                         <i class="now-ui-icons {{category.imageIcon}}"></i> 
@@ -36,7 +36,7 @@
               <div class="nav-pills-navigation" *ngIf="subCategories">
                 <div class="nav-pills-wrapper">
                   <ngb-tabset type="pills" class="nav nav-pills nav-pills-info justify-content-start tab-space">
-                    <ngb-tab *ngFor="let subCategory of subCategories._embedded.subcategories">
+                    <ngb-tab *ngFor="let subCategory of subCategories._embedded.emarketSubCategories">
                       <ng-template ngbTabTitle>
                         <span (click)="getProductsBySubCategory(subCategory)">
                           {{subCategory.name}}

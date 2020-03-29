@@ -33,7 +33,7 @@ export class ProductsComponent implements OnInit {
   getProductsBySubCategory(subCategory) {
     this.categoriesService.getProductsBySubCategory(subCategory).subscribe(data => {
       this.products = data;
-      this.numberProductsByCategory = this.products._embedded.products.length;
+      this.numberProductsByCategory = this.products._embedded.emarketProducts.length;
     }, err => {
       console.log('Error CategoriesService - getProductsBySubCategory: ', err);
     });
@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit {
 
   onGetProductDetails(product: Product) {
     this.isCategoryTitle = true;
-    const urlProduct = btoa(product._links.product.href);
+    const urlProduct = btoa(product._links.emarketProduct.href);
     this.router.navigateByUrl('product-details/' + urlProduct);
   }
 }

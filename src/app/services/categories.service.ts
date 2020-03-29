@@ -7,8 +7,8 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CategoriesService {
 
-  public categoriestUrl = window['baseUrl'] + '/categories';
-  public subCategoriestUrl = window['baseUrl'] + '/subCategories';
+  public categoriestUrl = window['baseUrl'] + '/emarketCategories';
+  public subCategoriestUrl = window['baseUrl'] + '/emarketSubCategories';
 
   constructor(
     public router: Router, private http: HttpClient) {

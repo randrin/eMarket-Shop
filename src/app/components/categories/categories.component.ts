@@ -45,7 +45,7 @@ export class CategoriesComponent implements OnInit {
 
   getProducts(category) {
     console.log(category);
-    const urlProduct = category._links.products.href;
+    const urlProduct = category._links.emarketProducts.href;
     console.log(urlProduct);
   }
 }

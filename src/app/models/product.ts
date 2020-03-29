@@ -20,7 +20,7 @@ export interface Product {
     self: {
       href: string;
     },
-    product: {
+    emarketProduct: {
       href: string;
     },
     category: {

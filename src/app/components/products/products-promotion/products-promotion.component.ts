@@ -22,14 +22,14 @@ export class ProductsPromotionComponent implements OnInit {
   getProductsPromotion() {
     this.productsService.getProductsPromotion().subscribe(products => {
       this.productsPromotion = products;
-      this.numberProductsPromotion = this.productsPromotion._embedded.products.length;
+      this.numberProductsPromotion = this.productsPromotion._embedded.emarketProducts.length;
     },  err => {
       console.log('Error ProductsService - getProductsPromotion: ', err);
     });
   }
 
   onGetProductDetails(product: Product) {
-    const urlProduct = btoa(product._links.product.href);
+    const urlProduct = btoa(product._links.emarketProduct.href);
     this.router.navigateByUrl('product-details/' + urlProduct);
   }
 }

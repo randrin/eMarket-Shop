@@ -1,7 +1,7 @@
 <div class="eMarket-products-available-wrapper">
   <h3>Nous avons trouvé au total <span class="eMarket-promotion-title">{{numberProductsAvailable}}</span> produits disponible au store Emarket-Shop.</h3>
   <div class="row" *ngIf="productsAvailable">
-    <div *ngFor="let product of productsAvailable._embedded.products" class="eMarket-product-container col-lg-4 col-md-6">
+    <div *ngFor="let product of productsAvailable._embedded.emarketProducts" class="eMarket-product-container col-lg-4 col-md-6">
         <div (click)="onGetProductDetails(product)" class="card card-product card-plain">
             <div class="eMarket-product-reduction" *ngIf="product.sale">
               <span>{{product.reductionPercent}}%</span>
